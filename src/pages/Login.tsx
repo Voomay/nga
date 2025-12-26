@@ -64,6 +64,7 @@ export const Login: React.FC = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState('');
+  const [showPassword, setShowPassword] = useState(false);
 
   // Form State
   const [email, setEmail] = useState('');
@@ -255,13 +256,19 @@ export const Login: React.FC = () => {
                 <input
                   className="h-12 w-full rounded-xl border border-border-light bg-background-light px-4 text-sm font-medium leading-normal text-text-main placeholder:text-text-muted focus:border-primary focus:outline-0 focus:ring-1 focus:ring-primary transition-all"
                   placeholder="••••••••"
-                  type="password"
+                  type={showPassword ? "text" : "password"}
                   autoComplete="current-password"
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                   required
                 />
-                <span className="material-symbols-outlined absolute right-4 top-1/2 -translate-y-1/2 text-text-muted text-[20px]">lock</span>
+                <button
+                  type="button"
+                  onClick={() => setShowPassword(!showPassword)}
+                  className="absolute right-4 top-1/2 -translate-y-1/2 text-text-muted hover:text-primary transition-colors focus:outline-none"
+                >
+                  <span className="material-symbols-outlined text-[20px]">{showPassword ? 'visibility' : 'visibility_off'}</span>
+                </button>
               </div>
             </label>
 
@@ -374,8 +381,8 @@ export const Login: React.FC = () => {
               <div
                 key={index}
                 className={`absolute bottom-0 left-0 w-full transition-all duration-700 ease-in-out transform ${index === currentSlide
-                    ? 'opacity-100 translate-y-0'
-                    : 'opacity-0 translate-y-4 pointer-events-none'
+                  ? 'opacity-100 translate-y-0'
+                  : 'opacity-0 translate-y-4 pointer-events-none'
                   }`}
               >
                 <h3 className="mb-3 text-3xl font-bold leading-tight">{slide.title}</h3>
