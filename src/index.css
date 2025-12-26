@@ -1,0 +1,60 @@
+:root {
+  /* Default Brand Color (AutoFix Blue): 13, 81, 176 */
+  --color-primary: 13 81 176; 
+  
+  /* Light Theme Variables */
+  --bg-light: #f8fafc;        /* slate-50 */
+  --surface-card: #ffffff;    /* white */
+  --border-light: #e2e8f0;    /* slate-200 */
+  --text-main: #0f172a;       /* slate-900 */
+  --text-muted: #64748b;      /* slate-500 */
+}
+
+/* Dark Theme Variables */
+.dark {
+  --bg-light: #0f172a;        /* slate-900 */
+  --surface-card: #1e293b;    /* slate-800 */
+  --border-light: #334155;    /* slate-700 */
+  --text-main: #f1f5f9;       /* slate-100 */
+  --text-muted: #94a3b8;      /* slate-400 */
+}
+
+body {
+  font-family: 'Manrope', sans-serif;
+}
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+.dark ::-webkit-scrollbar-thumb {
+  background: #475569;
+}
+.dark ::-webkit-scrollbar-thumb:hover {
+  background: #64748b;
+}
+
+.material-symbols-outlined {
+  font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+}
+.icon-fill {
+  font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+}
+
+@keyframes flicker {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.3; transform: scale(0.8); }
+}
+.animate-flicker {
+  animation: flicker 0.8s ease-in-out infinite;
+}
